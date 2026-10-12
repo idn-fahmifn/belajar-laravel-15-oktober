@@ -14,5 +14,9 @@ Route::get('/halaman-laravel', function(){
     return view('first-page.first');
 });
 
+Route::get('/halaman/{param}', function(){
+    return "Ini adalah halama detail";
+});
+
 
 

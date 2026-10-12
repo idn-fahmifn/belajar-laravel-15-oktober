@@ -16,7 +16,8 @@ Route::get('/halaman/{param?}', function ($nilai = 'laravel') {
 
 Route::prefix('kelas')->group(function () {
     Route::get('/halaman-laravel', function () {
-        return view('first-page.first');
+        $trainer = "Fahmi Nuradi";
+        return view('first-page.first', compact('trainer'));
     })->name('halaman.laravel');
 
     Route::get('/halaman-ccna', function () {

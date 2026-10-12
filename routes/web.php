@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\KelasController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -15,12 +17,6 @@ Route::get('/halaman/{param?}', function ($nilai = 'laravel') {
 })->name('halaman.detail');
 
 Route::prefix('kelas')->group(function () {
-    Route::get('/halaman-laravel', function () {
-        $trainer = "Fahmi Nuradi";
-        return view('first-page.first', compact('trainer'));
-    })->name('halaman.laravel');
-
-    Route::get('/halaman-ccna', function () {
-        return view('first-page.second');
-    })->name('halaman.ccna');
+    Route::get('/halaman-laravel', [KelasController::class, 'laravel'])->name('halaman.laravel');
+    Route::get('/halaman-ccna', [KelasController::class, 'ccna'])->name('halaman.ccna');
 });

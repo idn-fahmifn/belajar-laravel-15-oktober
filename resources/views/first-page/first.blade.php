@@ -8,5 +8,6 @@
 <body>
     <h1>Kelas Laravel</h1>
     <p>Ini adalah kelas laravel</p>
+    <p>berikut adalah halaman <a href="{{route('halaman.ccna')}}">CCNA</a></p>
 </body>
 </html>

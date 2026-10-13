@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Illuminate\Http\Request;
+use Closure;
 use Symfony\Component\HttpFoundation\Response;
 
 class UmurMiddleware
@@ -15,6 +15,14 @@ class UmurMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+
+        $umur = 17;
+
+        if ($umur >= 18) {
+            return $next($request);
+        }
+
+        return back()->with('fail', 'Umur kamu belum cukup');
+
     }
 }

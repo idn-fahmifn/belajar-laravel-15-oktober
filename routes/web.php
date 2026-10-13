@@ -25,5 +25,6 @@ Route::prefix('kelas')->group(function () {
     Route::get('/halaman-ccna', [KelasController::class, 'ccna'])->name('halaman.ccna');
 
     Route::resource('/training', TrainingController::class);
+    Route::post('/kirim-training', [KelasController::class, 'kirim'])->name('kirim.kelas');
 
 });

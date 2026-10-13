@@ -17,6 +17,17 @@ class KelasController extends Controller
         return view('first-page.second');
     }
 
+    public function kirim(Request $request)
+    {
+        $request->validate([
+            'nama_training' => ['string','required', 'min:3', 'max:30'],
+            'nama_trainer' => ['string','required', 'min:3', 'max:30'],
+            'durasi' => ['integer','required', 'min:1', 'max:5'],
+        ]);
+
+        return $request
+    }
+
     // index, create, store, show, edit, update, delete
 
 }

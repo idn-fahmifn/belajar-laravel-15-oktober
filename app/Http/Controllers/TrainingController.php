@@ -19,7 +19,7 @@ class TrainingController extends Controller
      */
     public function create()
     {
-        return "ini adalah respon create dari training controller";
+        return view('training.create');
     }
 
     /**

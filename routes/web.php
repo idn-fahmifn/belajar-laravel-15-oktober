@@ -20,11 +20,9 @@ Route::get('/halaman/{param?}', function ($nilai = 'laravel') {
     return 'Ini adalah halaman detail '.$nilai;
 })->name('halaman.detail');
 
-Route::prefix('kelas')->group(function () {
+Route::prefix('kelas')->middleware('age')->group(function () {
     Route::get('/halaman-laravel', [KelasController::class, 'laravel'])->name('halaman.laravel');
-    Route::get('/halaman-ccna', [KelasController::class, 'ccna'])
-    ->name('halaman.ccna')->middleware('age');
-
+    Route::get('/halaman-ccna', [KelasController::class, 'ccna'])->name('halaman.ccna');
     Route::resource('/training', TrainingController::class);
     Route::post('/kirim-training', [KelasController::class, 'kirim'])->name('kirim.kelas');
 

@@ -11,6 +11,7 @@
     <p>Berikut adalah halaman untuk create</p>
 
     <form action="{{route('kirim.kelas')}}" method="post">
+        @csrf
         <div class="">
             <label for="nama_training">Nama training</label>
             <input type="text" name="nama_training"  value="{{old('nama_training')}}" required>

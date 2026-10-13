@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\KelasController;
+use App\Http\Controllers\{KelasController, TrainingController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +12,10 @@ Route::get('/laravel', function () {
     return 'Welcome to kelas laravel';
 })->name('welcome.laravel');
 
+Route::post('/laravel', function () {
+    return 'Welcome to kelas laravel';
+})->name('store.laravel');
+
 Route::get('/halaman/{param?}', function ($nilai = 'laravel') {
     return 'Ini adalah halaman detail '.$nilai;
 })->name('halaman.detail');
@@ -19,4 +23,7 @@ Route::get('/halaman/{param?}', function ($nilai = 'laravel') {
 Route::prefix('kelas')->group(function () {
     Route::get('/halaman-laravel', [KelasController::class, 'laravel'])->name('halaman.laravel');
     Route::get('/halaman-ccna', [KelasController::class, 'ccna'])->name('halaman.ccna');
+
+    Route::resource('/training', TrainingController::class);
+
 });

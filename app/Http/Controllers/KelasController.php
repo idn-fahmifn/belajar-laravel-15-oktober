@@ -17,4 +17,6 @@ class KelasController extends Controller
         return view('first-page.second');
     }
 
+    // index, create, store, show, edit, update, delete
+
 }

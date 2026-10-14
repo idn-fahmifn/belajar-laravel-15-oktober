@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\TrainingRequest;
+use App\Models\Course;
 
 class KelasController extends Controller
 {
@@ -23,6 +24,18 @@ class KelasController extends Controller
     {
         $request->validated();
         return $request;
+    }
+
+    public function course()
+    {
+        $courses = Course::all();
+        return view('training.course', compact('courses'));
+    }
+
+    public function detailCourse($id)
+    {
+        $course = Course::find($id);
+        return view('training.detail', compact('course'));
     }
 
     // index, create, store, show, edit, update, delete

@@ -12,9 +12,8 @@ Route::get('/laravel', function () {
     return 'Welcome to kelas laravel';
 })->name('welcome.laravel');
 
-Route::post('/laravel', function () {
-    return 'Welcome to kelas laravel';
-})->name('store.laravel');
+Route::get("/course", [KelasController::class, 'course'])->name('listcourse');
+Route::get("/course/{param}", [KelasController::class, 'detailCourse'])->name('detail.course');
 
 Route::get('/halaman/{param?}', function ($nilai = 'laravel') {
     return 'Ini adalah halaman detail '.$nilai;
